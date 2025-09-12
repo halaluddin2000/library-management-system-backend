@@ -41,15 +41,15 @@ BooksRoutes.get("/", async (req: Request, res: Response) => {
     //const book = await Book.find().sort({ genre: -1 });
 
     // -----------limit: Number of results (default: 10)
-    const book = await Book.find().limit(10);
+    // const book = await Book.find().limit(10);
 
     //----------all books find
-    // const books = await Book.find();
+    const books = await Book.find();
 
     res.status(201).json({
       success: true,
       message: "Books retrieved successfully",
-      data: book,
+      data: books,
     });
   } catch (error: any) {
     console.log(error);
