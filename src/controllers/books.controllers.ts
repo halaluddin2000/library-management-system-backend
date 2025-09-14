@@ -6,15 +6,17 @@ export const BooksRoutes = express.Router();
 BooksRoutes.post("/create-book", async (req: Request, res: Response) => {
   try {
     const body = req.body;
+    console.log("Incoming Book Data:", body);
+
     const book = await Book.create(body);
 
     res.status(201).json({
       success: true,
-      message: "Books data created successfuly",
+      message: "Book created successfully",
       data: book,
     });
   } catch (error: any) {
-    console.log(error);
+    console.error("Error creating book:", error);
     res.status(400).json({
       success: false,
       message: error.message,
