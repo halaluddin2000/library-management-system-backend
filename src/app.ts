@@ -7,7 +7,10 @@ const app: Application = express();
 
 app.use(
   cors({
-    origin: "https://library-management-system-frontend-gilt.vercel.app",
+    origin: [
+      "http://localhost:5173",
+      "https://library-management-system-frontend-gilt.vercel.app",
+    ],
     methods: ["GET", "POST", "PATCH", "DELETE"],
     credentials: true,
   })
